@@ -1,0 +1,52 @@
+﻿@model ParKingMVC.UserInfoModel
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Show/Show.cshtml";
+}
+<link href="~/layui-v2.5.4/layui/css/layui.css" rel="stylesheet" />
+@using (Html.BeginForm("UserInfoUpt", "UserInfo",FormMethod.Post,new { @enctype = "multipart/form-data" }))
+{
+<table class="layui-table layui-table-body" style="padding-left:450px; background-color:lightblue;width:980px ;">
+    <tr>
+        <td>头像</td>
+        <td>
+            @Html.HiddenFor(m=>m.UIDa)
+            <img src="@Model.UImage" style="width:100px;height:100px" />
+            <input type="file" name="File" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td>姓名</td>
+        <td>
+            @Html.TextBoxFor(m => m.Uname)
+        </td>
+    </tr>
+    <tr>
+        <td>手机号</td>
+        <td>
+            @Html.TextBoxFor(m => m.UPhone)
+        </td>
+    </tr>
+    <tr>
+        <td>身份证</td>
+        <td>
+            @Html.TextBoxFor(m=>m.Uidentity)
+        </td>
+    </tr>
+    <tr>
+        <td>地址</td>
+        <td>
+            @Html.TextBoxFor(m=>m.USite)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" name="name" value="提交" class="layui-btn layui-btn-normal layui-btn-radius"  />
+        </td>
+        <td>
+            <input type="submit" name="name" value="取消" class="layui-btn layui-btn-normal layui-btn-radius"  />
+        </td>
+    </tr>
+</table>
+}
+
