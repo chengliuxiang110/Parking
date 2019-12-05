@@ -29,18 +29,20 @@ namespace ParKingMVC.Controllers
         [HttpPost]
         public void UserInfoLogon(string Name,string Key)
         {
+            url+= $"Login/login";
+            //string date = HttpClientHeper.Get(url);
             UserInfoModel m = new UserInfoModel() { Uname = Name, Upwd = Key };
-            url+= "Login/Login";
+
             string s = JsonConvert.SerializeObject(m);
             string data = HttpClientHeper.Post(url, s);
             List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(data);
             if (list.Count > 0)
             {
-                Response.Write("<script>alert('登录成功！');location.href='/Users/Show'</script>");
+                Response.Write("<script>alert('登录成功！');location.href='/UsersInfo/Show'</script>");
             }
             else
             {
-                Response.Write("<script>alert('登录失败！');location.href='/Users/Show'</script>");
+                Response.Write("<script>alert('登录失败！');location.href='/UsersInfo/Show'</script>");
             }
         }
 
