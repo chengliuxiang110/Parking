@@ -23,7 +23,7 @@ namespace ParKingMVC.Controllers
 
         #region 注册
         [HttpPost]
-        public void ULogin(UserInfoModel model, HttpPostedFileBase fileBase)
+        public void UserInfoLogin(UserInfoModel model, HttpPostedFileBase fileBase)
         {
             if (!System.IO.Directory.Exists(Server.MapPath("/Img/")))
             {
@@ -32,17 +32,17 @@ namespace ParKingMVC.Controllers
             fileBase.SaveAs(Server.MapPath("/Img/") + fileBase.FileName);
             model.UImage = "/Img/" + fileBase.FileName;
 
-            url += "ULogin/Add";
-            string s = JsonConvert.SerializeObject(url);
-            string data = HttpClientHeper.Post(url, s);
-            List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(data);
-            if (list.Count > 0)
+            url += "login/Add";
+            string s = JsonConvert.SerializeObject(model);
+            string i = HttpClientHeper.Post(url, s);
+            
+            if (Convert.ToInt32(i) > 0)
             {
-                Response.Write("<script>alert('注册成功！');location.href='/Users/Show'</script>");
+                Response.Write("<script>alert('注册成功！');location.href='/UserInfo/UserInfoLogin'</script>");
             }
             else
             {
-                Response.Write("<script>alert('注册失败！');location.href='/Users/Show'</script>");
+                Response.Write("<script>alert('注册失败！');location.href='/UserInfo/UserInfoLogin'</script>");
             }
         }
         #endregion
