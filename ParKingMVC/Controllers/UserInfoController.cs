@@ -32,13 +32,16 @@ namespace ParKingMVC.Controllers
             url+= $"Login/login";
             //string date = HttpClientHeper.Get(url);
             UserInfoModel m = new UserInfoModel() { Uname = Name, Upwd = Key };
-
             string s = JsonConvert.SerializeObject(m);
             string data = HttpClientHeper.Post(url, s);
             List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(data);
+           
             if (list.Count > 0)
             {
-                Response.Write("<script>alert('登录成功！');location.href='/UsersInfo/Show'</script>");
+                Session["ID"] = list.First().UIDa;
+                int ids = Convert.ToInt32(Session["ID"]);
+                Response.Write("<script>alert('登录成功！')</script>");
+                Response.Redirect($"http://localhost:7652/UserInfo/Show/?id={ids}");
             }
             else
             {
@@ -57,7 +60,7 @@ namespace ParKingMVC.Controllers
         /// 个人信息反填
         /// </summary>
         /// <returns></returns>
-        public ActionResult Show(int id=1)
+        public ActionResult Show(int id)
         {
             url += "Login/SelectOne?id="+id;
             string model = HttpClientHeper.Get(url);
