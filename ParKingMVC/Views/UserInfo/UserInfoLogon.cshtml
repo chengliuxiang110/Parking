@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "UserInfoLogon";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sliding Forms Widget a Flat Responsive Widget Template</title>
+    <!-- For-Mobile-Apps-and-Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //For-Mobile-Apps-and-Meta-Tags -->
+
+
+
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/Login/Login/css/style.css" rel="stylesheet" />
+    <link href="~/css/jquerysctipttop.css" rel="stylesheet" type="text/css" />
+
+
+    <style>
+        #File1 {
+            padding: 0 25px;
+        }
+
+        #Fid {
+            padding: 0 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>User registration login interface</h1>
+    <section>
+        <div class="controls w3l">
+            <div class="cbcontrol" id="cbControlRight"></div>
+            <div class="cbcontrol" id="cbControlLeft"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="stage">
+            <div class="cbImage w3">
+                <h3>恢复形式</h3>
+                <form action="#" method="post">
+                    <input type="text" class="email" name="email" placeholder="邮箱" required="">
+                    <input type="text" class="number" name="phone number" placeholder="电话" required="">
+                    <input type="submit" class="done" style="padding:8px 5px;" value="恢复">
+                </form>
+                <a href="#" class="rterms">Terms and Conditions</a>
+            </div>
+            <div class="cbImage active signin agileits">
+
+
+
+                <h3>用户登录</h3>
+                <form action="UserInfoLogon" method="post">
+                    <input type="text" name="Name" class="name" placeholder="用户名" required="">
+                    <input type="password" name="Key" class="password" placeholder="密码" required="">
+                    <input type="submit" id="id" value="用户登录">
+                    <ul class="bottom">
+                        <li><a href="#" class="forgot">Forgot Password?</a></li>
+                        <li><a href="#" class="terms">Terms and Conditions</a></li>
+                    </ul>
+                </form>
+            </div>
+            <div class="cbImage agileinfo" id="Fid">
+                <h3>用户注册</h3>
+                <form action="/UserInfoLogon/UserInfoLogon" method="post" enctype="multipart/form-data">
+                    <input id="File1" type="file" style="text-align:right" class="img-circle" name="fileBase" />
+                    <input type="text" class="name" name="Uname" placeholder="用户名" required="">
+                    <input type="password" class="password" name="Upwd" placeholder="密码" required="">
+                    <input type="password" class="password" name="confirm password" placeholder="确认密码" required="">
+                    <input type="text" class="name" name="UPhone" placeholder="电话" required="">
+                    <input type="text" class="name" name="Uidentity" placeholder="省份证" required="">
+                    <input type="text" class="name" name="USite" placeholder="用户地址" required="">
+                    <input type="submit" value="用户注册">
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        @*<div class="footer">
+                <p>&copy; 2016 Sliding Forms Widget. All Rights Reserved | Design by sucaihuo.com</p>
+            </div>*@
+    </section>
+    <script src="~/Login/Login/js/jquery-2.1.4.min.js"></script>
+    <script src="~/Login/Login/coverflow-slideshow.js"></script>
+    @*<div style="text-align:center;">
+            <p>更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+        </div>*@
+</body>
+</html>
