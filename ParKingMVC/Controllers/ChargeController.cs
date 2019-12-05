@@ -22,7 +22,7 @@ namespace ParKingMVC.Controllers
             url += "Charge/Select";
             string model = id.ToString();
             string i = HttpClientHeper.Post(url, model);
-            List<ParkInfoModel> parks = JsonConvert.DeserializeObject<List<ParkInfoModel>>(JsonConvert.SerializeObject(i));
+            List<ParkInfoModel> parks = JsonConvert.DeserializeObject<List<ParkInfoModel>>(i);
             return View(parks);
         }
         /// <summary>
@@ -37,11 +37,19 @@ namespace ParKingMVC.Controllers
         public void Add(ChargeInfoModel charge)
         {
             url += "Charge/Add";
-            string m = JsonConvert.SerializeObject(charge);
-            string i = HttpClientHeper.Post(url, m);
-            if (Convert.ToInt32(i) > 0)
+           
+            for (int j = 1; j < 1000; j++)
             {
-                Response.Write("<><>");
+                //流水号写入
+                charge.NIO = System.DateTime.Now.TimeOfDay + "j";
+                j++;
+                string m = JsonConvert.SerializeObject(charge);
+                string i = HttpClientHeper.Post(url, m);
+                if (Convert.ToInt32(i) > 0)
+                {
+                    Response.Write("<><>"); 
+                }
+             break;
             }
         }
         /// <summary>
