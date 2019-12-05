@@ -14,12 +14,12 @@ namespace ParKing.Controllers
         //用户登入
         [Route("login")]
         [HttpPost]
-        public IHttpActionResult Login(string Name, string Key)
+        public IHttpActionResult Login(UserInfoModel userInfo)
         {
             Dictionary<string, object> pairs = new Dictionary<string, object>();
-            pairs.Add("@Uname", "Name");
-            pairs.Add("@Upwd", "Key");
-            DataTable i = DBHelper.ExecProcDataTable("P_UserInfo_UptLogin", pairs);
+            pairs.Add("@Uname", userInfo.Uname);
+            pairs.Add("@Upwd", userInfo.Upwd);
+            DataTable i = DBHelper.ExecProcDataTable("P_UserInfo_Login", pairs);
             return Json(i);
         }
         //修改密码

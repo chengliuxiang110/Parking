@@ -21,6 +21,32 @@ namespace ParKingMVC.Controllers
         #region 用户登录、注册
 
 
+        #region 注册
+        [HttpPost]
+        public void ULogin(UserInfoModel model, HttpPostedFileBase fileBase)
+        {
+            if (!System.IO.Directory.Exists(Server.MapPath("/Img/")))
+            {
+                System.IO.Directory.CreateDirectory(Server.MapPath("/Img/"));
+            }
+            fileBase.SaveAs(Server.MapPath("/Img/") + fileBase.FileName);
+            model.UImage = "/Img/" + fileBase.FileName;
+
+            url += "ULogin/Add";
+            string s = JsonConvert.SerializeObject(url);
+            string data = HttpClientHeper.Post(url, s);
+            List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(data);
+            if (list.Count > 0)
+            {
+                Response.Write("<script>alert('注册成功！');location.href='/Users/Show'</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('注册失败！');location.href='/Users/Show'</script>");
+            }
+        }
+        #endregion
+
         #region 登录
         public ActionResult UserInfoLogon()
         {
@@ -29,9 +55,12 @@ namespace ParKingMVC.Controllers
         [HttpPost]
         public void UserInfoLogon(string Name,string Key)
         {
-            UserInfoModel m = new UserInfoModel() { Uname = Name, Upwd = Key };
-            url+= "Login/Login";
-            string s = JsonConvert.SerializeObject(m);
+            UserInfoModel userInfo = new UserInfoModel();
+            userInfo.Uname = Name;
+            userInfo.Upwd = Key;
+     
+            url+= $"Login/login";
+            string s = JsonConvert.SerializeObject(userInfo);
             string data = HttpClientHeper.Post(url, s);
             List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(data);
             if (list.Count > 0)
@@ -45,9 +74,8 @@ namespace ParKingMVC.Controllers
         }
 
         #endregion
-        #region 注册
 
-        #endregion
+
         #endregion
 
 
