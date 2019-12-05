@@ -271,6 +271,11 @@
     <Content Include="layui-v2.5.4\layui\lay\modules\tree.js" />
     <Content Include="layui-v2.5.4\layui\lay\modules\upload.js" />
     <Content Include="layui-v2.5.4\layui\lay\modules\util.js" />
+    <Content Include="Login\Login\coverflow-slideshow.js" />
+    <Content Include="Login\Login\css\jquerysctipttop.css" />
+    <Content Include="Login\Login\css\style.css" />
+    <Content Include="Login\Login\index.html" />
+    <Content Include="Login\Login\js\jquery-2.1.4.min.js" />
     <Content Include="Pan\321695.jpg" />
     <Content Include="Pan\css\reset.min.css" />
     <Content Include="Pan\css\style.css" />
@@ -314,6 +319,7 @@
     <Content Include="Views\Show\Show.cshtml" />
     <Content Include="Views\CarTypes\Index.cshtml" />
     <Content Include="Views\Park\Add.cshtml" />
+    <Content Include="Views\UserInfo\UserInfoLogon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
