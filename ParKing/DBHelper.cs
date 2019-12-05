@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ParKing
 {
     public class DBHelper
     {
-        static string sqlconn = "Data Source=.;Initial Catalog=ParkStop;User ID=sa;pwd=1234";
+        static string sqlconn = ConfigurationManager.ConnectionStrings["Conn"].ToString();
         //普通的Sql
         public static int ExecSQL(string sql)
         {
