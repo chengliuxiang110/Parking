@@ -313,11 +313,11 @@
     <Content Include="Views\UserInfo\Show.cshtml" />
     <Content Include="Views\Show\Show.cshtml" />
     <Content Include="Views\CarTypes\Index.cshtml" />
+    <Content Include="Views\Park\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Charge\" />
-    <Folder Include="Views\Park\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

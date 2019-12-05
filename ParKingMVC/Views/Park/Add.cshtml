@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Show/Show.cshtml";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="layui-table layui-table-body" style="padding-left:450px; background-color:skyblue;width:980px ;">
+        <tr>
+            <td>车库类型</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>用户名称</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>车位</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>车辆图片</td>
+            <td><input type="file" name="name" value="" /></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="提交" class="layui-btn layui-btn-normal layui-btn-radius" />
+            </td>
+            <td>
+                <input type="submit" value="取消" class="layui-btn layui-btn-normal layui-btn-radius" />
+            </td>
+        </tr>
+    </table>
+}

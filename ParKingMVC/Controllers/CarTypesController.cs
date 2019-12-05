@@ -23,24 +23,6 @@ namespace ParKingMVC.Controllers
             List<CarTypesInfoModel> list = JsonConvert.DeserializeObject<List<CarTypesInfoModel>>(model);
             return View(list);
         }
-        /// <summary>
-        /// 添加方法
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Add()
-        {
-            return View();
-        }
-        [HttpPost]
-        public void Add(ChargeInfoModel model)
-        {
-            url += "/CarType/Add";
-            string m = JsonConvert.SerializeObject(model);
-            string i = HttpClientHeper.Post(url, m);
-            if (Convert.ToInt32(i) > 0)
-            {
-                Response.Write("<><>");
-            }
-        }
+       
     }
 }
