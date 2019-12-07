@@ -55,6 +55,7 @@ namespace ParKingMVC.Controllers
         [HttpPost]
         public void UserInfoLogon(string Name,string Key)
         {
+            url += "/Login/Login";
             UserInfoModel m = new UserInfoModel() { Uname = Name, Upwd = Key };
 
             string s = JsonConvert.SerializeObject(m);

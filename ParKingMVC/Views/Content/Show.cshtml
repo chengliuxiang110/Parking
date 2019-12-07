@@ -1,0 +1,89 @@
+﻿
+@{
+    //ViewBag.Title = "Show";
+    //Layout = "~/Views/Show/Show.cshtml";
+    Layout = null;
+}<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="~/Login/ImgB/css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script src="~/Login/ImgB/js/swiper.min.js"></script>
+</head>
+<body>
+
+
+    <div class="banner-box" style="width:25%;height:100%;background-color:skyblue">
+        <div class="banner-top"></div>
+        <div class="banner-title">
+            <h1></h1>
+        </div>
+        <div class="banner-text">
+            <p></p>
+        </div>
+        <div class="banner-top-one"></div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-slide-center none-effect">
+                    <a href="javascript:;">
+                        <img src="~/Login/ImgB/images/t1.png" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="javascript:;">
+                        <img src="~/Login/ImgB/images/t2.png" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="javascript:;">
+                        <img src="~/Login/ImgB/images/t3.png" />
+                    </a>
+                </div>
+
+            </div>
+            <div class="banner-arrow">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div>
+
+        </div>
+    </div>
+    @*<div class="banner-button" style="width:50%;height:50%">
+        <a href="javascript:;" class="do-btn banner-button-btn">更多图片</a>
+    </div>*@
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var swiper = new Swiper('.swiper-container', {
+                autoplay: 3000, //是否自动滚动
+                speed: 500,      //滚动速速
+                autoplayDisableOnInteraction: true,
+                loop: true,
+                centeredSlides: true,
+                slidesPerView: 3, //当前选中
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                prevButton: '.swiper-button-prev', // 左右切换
+                nextButton: '.swiper-button-next', // 左右切换
+                onInit: function (swiper) {
+                    swiper.slides[3].className = "swiper-slide swiper-slide-active"; //当前选中 状态
+                },
+                breakpoints: {
+                    100: {
+                        slidesPerView: 0,
+                    }
+                }
+            });
+        }
+
+    </script>
+
+
+</body>
+</html>

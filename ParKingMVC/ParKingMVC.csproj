@@ -132,6 +132,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CarTypesController.cs" />
     <Compile Include="Controllers\ChargeController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
     <Compile Include="Controllers\ShowController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
@@ -271,6 +272,28 @@
     <Content Include="layui-v2.5.4\layui\lay\modules\tree.js" />
     <Content Include="layui-v2.5.4\layui\lay\modules\upload.js" />
     <Content Include="layui-v2.5.4\layui\lay\modules\util.js" />
+    <Content Include="Login\CY\css\common.css" />
+    <Content Include="Login\CY\css\index.css" />
+    <Content Include="Login\CY\css\swiper-3.3.1.min.css" />
+    <Content Include="Login\CY\images\btn_calendar_selected.png" />
+    <Content Include="Login\CY\images\btn_huangli.png" />
+    <Content Include="Login\CY\images\calendar_arrow_right.png" />
+    <Content Include="Login\CY\images\calendar_bottom.png" />
+    <Content Include="Login\CY\images\calendar_img_relax.png" />
+    <Content Include="Login\CY\images\calendar_img_work.png" />
+    <Content Include="Login\CY\images\cotrl-bottom.png" />
+    <Content Include="Login\CY\images\loading.png" />
+    <Content Include="Login\CY\index.html" />
+    <Content Include="Login\CY\js\common.js" />
+    <Content Include="Login\CY\js\jquery-1.11.0.js" />
+    <Content Include="Login\CY\js\swiper-3.3.1.min.js" />
+    <Content Include="Login\ImgB\css\style.css" />
+    <Content Include="Login\ImgB\images\t1.png" />
+    <Content Include="Login\ImgB\images\t2.png" />
+    <Content Include="Login\ImgB\images\t3.png" />
+    <Content Include="Login\ImgB\images\t4.png" />
+    <Content Include="Login\ImgB\index.html" />
+    <Content Include="Login\ImgB\js\swiper.min.js" />
     <Content Include="Login\Login\coverflow-slideshow.js" />
     <Content Include="Login\Login\css\jquerysctipttop.css" />
     <Content Include="Login\Login\css\style.css" />
@@ -320,6 +343,7 @@
     <Content Include="Views\CarTypes\Index.cshtml" />
     <Content Include="Views\Park\Add.cshtml" />
     <Content Include="Views\UserInfo\UserInfoLogon.cshtml" />
+    <Content Include="Views\Content\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
