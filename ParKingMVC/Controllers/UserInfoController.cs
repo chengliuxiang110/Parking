@@ -108,5 +108,26 @@ namespace ParKingMVC.Controllers
                 Response.Write("<script>alert('修改成功！');location.href='/UserInfo/Show'</script>");
             }
         }
+
+        public ActionResult UserInfoUpt(int id)
+        {
+            url += "Login/SelectOne?id=" + id;
+            string model = HttpClientHeper.Get(url);
+            List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
+            return View(list.First());
+        }
+        [HttpPost]
+        public void UserInfoUpt(UserInfoModel user)
+        {
+            url += "login/Upt";
+            string s = JsonConvert.SerializeObject(url);
+            string model = HttpClientHeper.Post(url, s);
+            if (Convert.ToInt32(model) > 0)
+            {
+                int ids = Convert.ToInt32(Session["ID"]);
+                Response.Write("<script>alert('修改成功！')</script>");
+                Response.Redirect($"http://localhost:7652/UserInfo/Show/?id={ids}");
+            }
+        }
     }
 }
