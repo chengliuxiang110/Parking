@@ -12,11 +12,19 @@
             <td>
                 车库类型
             </td>
+            <td>
+                类型价格
+            </td>
+            <td>
+                操作
+            </td>
         </tr>
         @foreach (var m in Model)
         {
             <tr>
                 <td>@m.Tname</td>
+                <td>@(m.Tmaney + "/小时")</td>
+                <td>@Html.ActionLink("驶入","",new { @ID=m.TID})</td>
             </tr>
         }
     </table>

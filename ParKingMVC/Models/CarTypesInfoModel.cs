@@ -10,6 +10,7 @@ namespace ParKingMVC
         //车辆类别
         public int TID { get; set; }
         public string Tname { get; set; }
+        public decimal Tmaney { get; set; }
         public DateTime CreateDate { get; set; }
     }
 }
