@@ -24,7 +24,9 @@
             <tr>
                 <td>@m.Tname</td>
                 <td>@(m.Tmaney + "/小时")</td>
-                <td>@Html.ActionLink("驶入","",new { @ID=m.TID})</td>
+                <td>
+                    <input type="button" name="name" value="驶入" onclick="location.href = '/Park/Add?id='+@m.TID"  class="layui-btn layui-btn-normal layui-btn-radius" />
+                </td>
             </tr>
         }
     </table>

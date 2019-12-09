@@ -28,5 +28,14 @@ namespace ParKing.Controllers
             DataTable dt = DBHelper.ExecProcDataTable("P_CarTypes_Select", pairs);
             return Json(dt);
         }
+        [Route("Upt")]
+        [HttpGet]
+        public IHttpActionResult CarTypeUpt(int id)
+        {
+            Dictionary<string, object> pairs = new Dictionary<string, object>();
+            pairs.Add("@TId", id);
+            DataTable dt = DBHelper.ExecProcDataTable("P_CarType_Upt", pairs);
+            return Json(dt);
+        }
     }
 }

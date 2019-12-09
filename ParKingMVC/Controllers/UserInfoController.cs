@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -64,6 +65,22 @@ namespace ParKingMVC.Controllers
            
             if (list.Count > 0)
             {
+                //Cooke事件
+                HttpCookie cookie = new HttpCookie("User");
+                //给Cooke赋值
+                cookie.Value= list.First().Uname;
+                //给Cooke设置过期时间
+                cookie.Expires = DateTime.Now.AddMinutes(20);
+                //添加到服务器
+                Response.AppendCookie(cookie);
+
+                HttpCookie http = new HttpCookie("Cooke");
+                //Cooke传入并编码
+                http.Value = HttpUtility.UrlEncode(data, Encoding.GetEncoding("UTF-8"));
+                http.Expires = DateTime.Now.AddMinutes(20);
+                Response.AppendCookie(http);
+
+
                 Session["ID"] = list.First().UIDa;
                 int ids = Convert.ToInt32(Session["ID"]);
                 Response.Write("<script>alert('登录成功！')</script>");

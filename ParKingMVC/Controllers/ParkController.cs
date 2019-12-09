@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -50,20 +51,45 @@ namespace ParKingMVC.Controllers
         /// 添加方法
         /// </summary>
         /// <returns></returns>
-        public ActionResult Add()
+        public ActionResult Add(int id)
         {
-            return View();
+            ////Cooke获取值
+            //HttpCookie cookie = Request.Cookies["User"];
+            ////Cooke获取Value值
+            //ViewBag.Name = cookie.Value;
+
+            HttpCookie http = Request.Cookies["Cooke"];
+            //Cooke解码
+            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+            //反序列化
+            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+            foreach (var m in models)
+            {
+                ViewBag.Id = m.UIDa;
+                ViewBag.Name = m.Uname;
+            }
+
+
+
+
+
+            url += "CarType/Upt?id=" + id;
+            string model = HttpClientHeper.Get(url);
+            List<ViewModel> list = JsonConvert.DeserializeObject<List<ViewModel>>(model);
+            return View(list.First());
         }
         [HttpPost]
         public void Add(ParkInfoModel park)
         {
+            park.UIDa =Convert.ToInt32(Session["ID"]);
             url = "Park/Add";
             string m = JsonConvert.SerializeObject(park);
             string i = HttpClientHeper.Post(url, m);
             if (Convert.ToInt32(i) > 0)
             {
-                Response.Write("<><>");
+                Response.Write("<script>alter('添加成功！')</script>");
             }
         }
+
     }
 }

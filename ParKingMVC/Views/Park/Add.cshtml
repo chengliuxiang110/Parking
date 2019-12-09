@@ -1,4 +1,4 @@
-﻿
+﻿@model  ParKingMVC.ViewModel
 @{
     ViewBag.Title = "Add";
     Layout = "~/Views/Show/Show.cshtml";
@@ -10,12 +10,19 @@
 {
     <table class="layui-table layui-table-body" style="padding-left:450px; background-color:skyblue;width:980px ;">
         <tr>
-            <td>车库类型</td>
-            <td></td>
+            <td>车库类型以及价格</td>
+            <td>
+                <input type="hidden" name="@Model.TID" value="" />
+                <input type="text" name="@Model.Tname" value="@Model.Tname" disabled="disabled" />
+                <input type="text" name="@Model.Tmaney" value="@Model.Tmaney" disabled="disabled" />
+            </td>
         </tr>
         <tr>
             <td>用户名称</td>
-            <td></td>
+            <td>
+                <input type="hidden" name="@ViewBag.ID" value="" />
+                @ViewBag.Name
+            </td>
         </tr>
         <tr>
             <td>车位</td>

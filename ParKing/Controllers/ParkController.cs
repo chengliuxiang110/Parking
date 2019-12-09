@@ -39,7 +39,7 @@ namespace ParKing.Controllers
         }
         [Route("Add")]
         [HttpPost]
-        public IHttpActionResult ParkAdd(ParkInfoModel park)
+        public IHttpActionResult ParkAdd(ViewModel park)
         {
             Dictionary<string, object> pairs = new Dictionary<string, object>();
             pairs.Add("@WID", park.WID);

@@ -35,9 +35,8 @@ namespace ParKingMVC.Controllers
         }
         [HttpPost]
         public void Add(ChargeInfoModel charge)
-        {
-            url += "Charge/Add";
-           
+        {  
+            url += "Charge/Add";   
             for (int j = 1; j < 1000; j++)
             {
                 //流水号写入
