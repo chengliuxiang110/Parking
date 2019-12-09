@@ -345,6 +345,7 @@
     <Content Include="Views\Park\Add.cshtml" />
     <Content Include="Views\UserInfo\UserInfoLogon.cshtml" />
     <Content Include="Views\Content\Show.cshtml" />
+    <Content Include="Views\Show\LicenseAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

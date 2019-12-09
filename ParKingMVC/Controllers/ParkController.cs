@@ -69,10 +69,6 @@ namespace ParKingMVC.Controllers
                 ViewBag.Name = m.Uname;
             }
 
-
-
-
-
             url += "CarType/Upt?id=" + id;
             string model = HttpClientHeper.Get(url);
             List<ViewModel> list = JsonConvert.DeserializeObject<List<ViewModel>>(model);
