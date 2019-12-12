@@ -73,6 +73,16 @@ namespace ParKing.Controllers
             DataTable i = DBHelper.ExecProcDataTable("P_UserInfo_SelectOne", pairs);
             return Json(i);
         }
+        [Route("LicenseAdd")]
+        [HttpPost]
+        public IHttpActionResult LicenseAdd(UserInfoModel model)
+        {
+            Dictionary<string, object> pairs = new Dictionary<string, object>();
+            pairs.Add("@UId", model.UIDa);
+            pairs.Add("@License", model.Uplate); ;
+            int i = DBHelper.ExecProcSQL("P_LicenseAdd", pairs);
+            return Json(i);
+        }
 
     }
 }

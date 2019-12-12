@@ -67,6 +67,7 @@ namespace ParKingMVC.Controllers
             {
                 ViewBag.Id = m.UIDa;
                 ViewBag.Name = m.Uname;
+                ViewBag.Plate = m.Uplate;
             }
 
             url += "CarType/Upt?id=" + id;
@@ -75,15 +76,28 @@ namespace ParKingMVC.Controllers
             return View(list.First());
         }
         [HttpPost]
-        public void Add(ParkInfoModel park)
+        public void Add(ParkInfoModel park,HttpPostedFileBase File)
         {
+            if (!System.IO.Directory.Exists(Server.MapPath("/Img/")))
+                System.IO.Directory.CreateDirectory(Server.MapPath("/Img/"));
+
+            park.PImage = Server.MapPath("/Img/") + File.FileName;
+            HttpCookie http = Request.Cookies["Cooke"];
+            //Cooke解码
+            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+            //反序列化
+            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+            foreach (var a in models)
+            {
+                park.UIDa = a.UIDa;
+            }
             park.UIDa =Convert.ToInt32(Session["ID"]);
-            url = "Park/Add";
+            url += "Park/Add";
             string m = JsonConvert.SerializeObject(park);
             string i = HttpClientHeper.Post(url, m);
             if (Convert.ToInt32(i) > 0)
             {
-                Response.Write("<script>alter('添加成功！')</script>");
+                Response.Write("<script>alter('添加成功！';location.href='/USerInfo/Show')</script>");
             }
         }
 

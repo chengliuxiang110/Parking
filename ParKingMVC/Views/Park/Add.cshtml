@@ -6,7 +6,7 @@
 
 <h2>Add</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Add", "Park", FormMethod.Post,new { @enctype = "multipart/form-data" }))
 {
     <table class="layui-table layui-table-body" style="padding-left:450px; background-color:skyblue;width:980px ;">
         <tr>
@@ -25,12 +25,12 @@
             </td>
         </tr>
         <tr>
-            <td>车位</td>
-            <td></td>
+            <td>车牌号</td>
+            <td>@ViewBag.Plate</td>
         </tr>
         <tr>
             <td>车辆图片</td>
-            <td><input type="file" name="name" value="" /></td>
+            <td><input type="file" name="File" value="" /></td>
         </tr>
         <tr>
             <td>
