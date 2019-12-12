@@ -45,13 +45,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.SpeechLib">
+      <HintPath>..\..\..\。\Interop.SpeechLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Plugin.TextToSpeech, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.TextToSpeech.4.0.0.7\lib\netstandard2.0\Plugin.TextToSpeech.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Speech" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -143,6 +151,7 @@
     <Compile Include="Models\CarTypesInfoModel.cs" />
     <Compile Include="Models\ChargeInfoModel.cs" />
     <Compile Include="Models\ParkInfoModel.cs" />
+    <Compile Include="Models\ParkViewModel.cs" />
     <Compile Include="Models\StallInfoModel.cs" />
     <Compile Include="Models\UserInfoModel.cs" />
     <Compile Include="Models\ViewModel.cs" />
@@ -346,6 +355,7 @@
     <Content Include="Views\UserInfo\UserInfoLogon.cshtml" />
     <Content Include="Views\Content\Show.cshtml" />
     <Content Include="Views\Show\LicenseAdd.cshtml" />
+    <Content Include="Views\Park\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

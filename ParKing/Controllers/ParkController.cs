@@ -42,14 +42,31 @@ namespace ParKing.Controllers
         public IHttpActionResult ParkAdd(ViewModel park)
         {
             Dictionary<string, object> pairs = new Dictionary<string, object>();
-            pairs.Add("@WID", park.WID);
             pairs.Add("@UIDa", park.UIDa);
             pairs.Add("@PImage", park.PImage);
             pairs.Add("@TID", park.TID);
-            pairs.Add("@ExpireDate", park.ExpireDate);
             int i = DBHelper.ExecProcSQL("P_Park_Add", pairs);
             return Json(i);
         }
+        [Route("Away")]
+        [HttpPost]
+        public IHttpActionResult ParkAway(ParkInfoModel park)
+        {
+            Dictionary<string, object> pairs = new Dictionary<string, object>();
+            pairs.Add("@PId", park.PID);
+            pairs.Add("@Leave", park.ExpireDate);
+            int i = DBHelper.ExecProcSQL("P_Park_Away", pairs);
+            return Json(i);
+        }
 
+        [Route("SelectOne")]
+        [HttpGet]
+        public IHttpActionResult ParkSelect(int id)
+        {
+            Dictionary<string, object> pairs = new Dictionary<string, object>();
+            pairs.Add("@PId", id);
+            DataTable dt = DBHelper.ExecProcDataTable("P_Park_SelectOne", pairs);
+            return Json(dt);
+        }
     }
 }

@@ -1,0 +1,25 @@
+﻿@model List<ParKingMVC.ParkViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Show/Show.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+<table>
+    <tr>
+        <td>车主</td>
+        <td>@Model.First().Uname</td>
+    </tr>
+    <tr>
+        <td>车牌号</td>
+        <td>@Model.First().Uname</td>
+    </tr>
+    <tr>
+        <td>车牌号</td>
+        <td>@Model.First().Uname</td>
+    </tr>
+</table>
+}
+
