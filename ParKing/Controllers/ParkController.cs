@@ -64,7 +64,7 @@ namespace ParKing.Controllers
         public IHttpActionResult ParkSelect(int id)
         {
             Dictionary<string, object> pairs = new Dictionary<string, object>();
-            pairs.Add("@PId", id);
+            pairs.Add("@UId", id);
             DataTable dt = DBHelper.ExecProcDataTable("P_Park_SelectOne", pairs);
             return Json(dt);
         }

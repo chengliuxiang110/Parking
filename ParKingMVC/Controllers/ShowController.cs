@@ -49,6 +49,7 @@ namespace ParKingMVC.Controllers
             foreach (var m in models)
             {
                 model.UIDa = m.UIDa;
+                ViewBag.ID = m.UIDa;
             }
 
             model.Uplate = License;

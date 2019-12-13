@@ -7,19 +7,26 @@
 <h2>Index</h2>
 @using (Html.BeginForm())
 {
-<table>
+<table class="layui-table layui-table-body" style="padding-left:450px; background-color:skyblue;width:980px ;">
     <tr>
         <td>车主</td>
-        <td>@Model.First().Uname</td>
-    </tr>
-    <tr>
         <td>车牌号</td>
-        <td>@Model.First().Uname</td>
+        <td>进入时间</td>
+        <td>车库类型</td>
+        <td>操作</td>
     </tr>
+    @foreach (var m in Model)
+    {
     <tr>
-        <td>车牌号</td>
-        <td>@Model.First().Uname</td>
+        <td>@m.Uname</td>
+        <td>@m.Uplate</td>
+        <td>@m.CreateDate</td>
+        <td>@m.Tname</td>
+        <td>
+            <input type="button" name="name" value="驶出" onclick="location.href = '/Park/Away?id='+@m.PID" class="layui-btn layui-btn-normal layui-btn-radius" />
+        </td>
     </tr>
+    }
 </table>
 }
 

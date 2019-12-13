@@ -16,40 +16,24 @@ namespace ParKingMVC.Controllers
         //Url 路径连接
         string url = "http://localhost:6201/";
         // GET: Park
-        public ActionResult Index(int id)
+        public ActionResult Index(int id = 0)
         {
-            url += "Park/SelectOne?id="+id;
-            string model =  HttpClientHeper.Get(url);
-            List<ParkInfoModel> parks = JsonConvert.DeserializeObject<List<ParkInfoModel>>(JsonConvert.SerializeObject(model));
-            return View(parks);
-        }
-        /// <summary>
-        /// 删除方法
-        /// </summary>
-        /// <param name="id">传入的Id</param>
-        public void Del(int id)
-        {
-            url += "Park/Del";
-            string model = id.ToString();
-            string i = HttpClientHeper.Post(url, model);
-            if (Convert.ToInt32(i) > 0)
+
+            HttpCookie http = Request.Cookies["Cooke"];
+            //Cooke解码
+            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+            //反序列化
+            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+            foreach (var m in models)
             {
-                Response.Write("<><>");
+                id = m.UIDa;
             }
-        }
-        /// <summary>
-        /// 反填查询一条
-        /// </summary>
-        /// <param name="id">传入的ID</param>
-        /// <returns></returns>
-        public ActionResult SelectOne(int id)
-        {
-            url += "Park/Del";
-            string model = id.ToString();
-            string i = HttpClientHeper.Post(url, model);
-            List<ParkInfoModel> parks = JsonConvert.DeserializeObject<List<ParkInfoModel>>(JsonConvert.SerializeObject(i));
+            url += "Park/SelectOne?id=" + id;
+            string model = HttpClientHeper.Get(url);
+            List<ParkViewModel> parks = JsonConvert.DeserializeObject<List<ParkViewModel>>(model);
             return View(parks);
         }
+
         /// <summary>
         /// 添加方法
         /// </summary>
@@ -80,12 +64,13 @@ namespace ParKingMVC.Controllers
             return View(list.First());
         }
         [HttpPost]
-        public void Add(ParkInfoModel park,HttpPostedFileBase File)
+        public void Add(ParkInfoModel park, HttpPostedFileBase File)
         {
             if (!System.IO.Directory.Exists(Server.MapPath("/Img/")))
                 System.IO.Directory.CreateDirectory(Server.MapPath("/Img/"));
 
             park.PImage = Server.MapPath("/Img/") + File.FileName;
+            park.TID = Convert.ToInt32(Request["TID"]);
             HttpCookie http = Request.Cookies["Cooke"];
             //Cooke解码
             string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
@@ -141,7 +126,7 @@ namespace ParKingMVC.Controllers
                 #endregion
                 //MVC 
                 SpVoice speech = new SpVoice();//new一个
-                int speechRate = 2; //语音朗读速度
+                int speechRate = 1; //语音朗读速度
                 int volume = 100; //音量
                 bool paused = false;//是否暂停
 
@@ -159,14 +144,14 @@ namespace ParKingMVC.Controllers
                     speech.Speak(testspeech, SpeechVoiceSpeakFlags.SVSFlagsAsync);//开始语音朗读
                 }
 
-                Response.Write("<script>alert('添加成功！';location.href='/USerInfo/Show')</script>");
+                Response.Write("<script>alert('添加成功！');location.href='/USerInfo/Show'</script>");
             }
         }
 
         public void Away(int id)
         {
             url += "Park/Away";
-            DateTime  Leave = System.DateTime.Now;
+            DateTime Leave = System.DateTime.Now;
             ParkInfoModel parks = new ParkInfoModel();
             parks.ExpireDate = Leave;
             parks.PID = id;
@@ -174,7 +159,28 @@ namespace ParKingMVC.Controllers
             string m = HttpClientHeper.Post(url, model);
             if (Convert.ToInt32(m) > 0)
             {
-                Response.Write("<script>alert('谢谢您的本次停车');</script>");
+                //MVC 
+                SpVoice speech = new SpVoice();//new一个
+                int speechRate = 1; //语音朗读速度
+                int volume = 100; //音量
+                bool paused = false;//是否暂停
+
+                string testspeech = "感谢车牌号为"+ Session["Plate"].ToString() + "的客户停车，祝您一路顺风";//测试朗读内容
+
+                if (paused)
+                {
+                    speech.Resume();
+                    paused = false;
+                }
+                else
+                {
+                    speech.Rate = speechRate;
+                    speech.Volume = volume;
+                    speech.Speak(testspeech, SpeechVoiceSpeakFlags.SVSFlagsAsync);//开始语音朗读
+                }
+
+                Response.Write("<script>alert('谢谢您的本次停车！');location.href='/USerInfo/Show'</script>");
+
             }
         }
 
