@@ -13,7 +13,6 @@ namespace ParKingMVC.Controllers
 {
     public class ParkController : Controller
     {
-        double Money;
         //Url 路径连接
         string url = "http://localhost:6201/";
         // GET: Park
@@ -67,13 +66,13 @@ namespace ParKingMVC.Controllers
         [HttpPost]
         public void Add(ParkInfoModel park, HttpPostedFileBase File)
         {
-            Money = Convert.ToDouble(Request["Tmaney"]);
-
+          
             if (!System.IO.Directory.Exists(Server.MapPath("/Img/")))
                 System.IO.Directory.CreateDirectory(Server.MapPath("/Img/"));
 
             park.PImage = Server.MapPath("/Img/") + File.FileName;
             park.TID = Convert.ToInt32(Request["TID"]);
+            Session["TID"] = park.TID;
             HttpCookie http = Request.Cookies["Cooke"];
             //Cooke解码
             string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
@@ -184,9 +183,14 @@ namespace ParKingMVC.Controllers
                 DateTime Puttime = parks.CreateDate;
                 DateTime Gettime = parks.ExpireDate;
                 TimeSpan a = Gettime - Puttime;
-                double b = a.TotalDays;
+                double b = a.Minutes/60;
                 int i = (int)Math.Ceiling(b);
-                int price = Convert.ToInt32(Money);
+                int ids =Convert.ToInt32( Session["TID"]);
+                string urls = $"http://localhost:6201/CarType/CarSelectOne?id={ids}"  ;
+                string o = HttpClientHeper.Get(urls);
+                List<CarTypesInfoModel> list = JsonConvert.DeserializeObject< List<CarTypesInfoModel>>(o);
+                decimal de = list.First().Tmaney;
+                int price = Convert.ToInt32(de);
                 int sum = i * price;
                 Response.Write("<script>alert('谢谢您的本次停车！')</script>");
                 Response.Redirect("http://localhost:7652/Payment/QRcode?text=" + sum);
