@@ -13,6 +13,7 @@ namespace ParKingMVC.Controllers
 {
     public class ParkController : Controller
     {
+        double Money;
         //Url 路径连接
         string url = "http://localhost:6201/";
         // GET: Park
@@ -66,6 +67,8 @@ namespace ParKingMVC.Controllers
         [HttpPost]
         public void Add(ParkInfoModel park, HttpPostedFileBase File)
         {
+            Money = Convert.ToDouble(Request["Tmaney"]);
+
             if (!System.IO.Directory.Exists(Server.MapPath("/Img/")))
                 System.IO.Directory.CreateDirectory(Server.MapPath("/Img/"));
 
@@ -144,7 +147,7 @@ namespace ParKingMVC.Controllers
                     speech.Speak(testspeech, SpeechVoiceSpeakFlags.SVSFlagsAsync);//开始语音朗读
                 }
 
-                Response.Write("<script>alert('添加成功！');location.href='/USerInfo/Show'</script>");
+                Response.Write("<script>alert('驶入成功！');location.href='/USerInfo/Show'</script>");
             }
         }
 
@@ -178,8 +181,15 @@ namespace ParKingMVC.Controllers
                     speech.Volume = volume;
                     speech.Speak(testspeech, SpeechVoiceSpeakFlags.SVSFlagsAsync);//开始语音朗读
                 }
-
-                Response.Write("<script>alert('谢谢您的本次停车！');location.href='/USerInfo/Show'</script>");
+                DateTime Puttime = parks.CreateDate;
+                DateTime Gettime = parks.ExpireDate;
+                TimeSpan a = Gettime - Puttime;
+                double b = a.TotalDays;
+                int i = (int)Math.Ceiling(b);
+                int price = Convert.ToInt32(Money);
+                int sum = i * price;
+                Response.Write("<script>alert('谢谢您的本次停车！')</script>");
+                Response.Redirect("http://localhost:7652/Payment/QRcode?text=" + sum);
 
             }
         }

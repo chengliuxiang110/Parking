@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "QRcode";
+    Layout = "~/Views/Show/Show.cshtml";
+}
+
+<h2>QRcode</h2>
+
+<script src="~/Content/jquery-3.3.1.min.js"></script>
+<script src="~/Content/bootstrap.min.js"></script>
+
+<table class="layui-table layui-table-body" style="padding-left:450px; background-color:lightblue;width:980px ;">
+    <tr>
+        <td><span>请扫描二维码支付</span></td>
+        <td><img src="@ViewBag.Img" alt="" style="width:200px;height:200px" /></td>
+    </tr>
+</table>

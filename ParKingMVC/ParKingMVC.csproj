@@ -127,6 +127,12 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net461\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net461\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -142,6 +148,7 @@
     <Compile Include="Controllers\ChargeController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ShowController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -162,6 +169,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.js" />
+    <Content Include="Content\jquery-3.3.1.min.js" />
     <Content Include="Demo\assets\css\demo.css" />
     <Content Include="Demo\assets\img\-J-o-fyeyqem0354285.jpg" />
     <Content Include="Demo\assets\img\0025116bbe5b10183ee61a.jpg" />
@@ -356,10 +365,12 @@
     <Content Include="Views\Content\Show.cshtml" />
     <Content Include="Views\Show\LicenseAdd.cshtml" />
     <Content Include="Views\Park\Index.cshtml" />
+    <Content Include="Views\Payment\QRcode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Charge\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
