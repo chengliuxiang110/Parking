@@ -216,7 +216,30 @@ namespace ParKingMVC.Controllers
                 int price = Convert.ToInt32(de);
                 int sum = i * price;
                 Response.Write("<script>alert('谢谢您的本次停车！')</script>");
-                Response.Redirect("http://localhost:7652/Payment/QRcode?text=" + sum);
+                #region 明细
+                HttpCookie http = Request.Cookies["Cooke"];
+                //Cooke解码
+                string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+                //反序列化
+                List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+                Recode recode = new Recode();
+                string text = Session["Plate"].ToString() + "驶出汽车";
+                recode.RName = text;
+                List<ViewModel> modelsa = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+                foreach (var t in modelsa)
+                {
+                    recode.FId = t.UIDa;
+                }
+                string urll = "http://localhost:6201/Recode/Add";
+                string y = JsonConvert.SerializeObject(recode);
+                string modela = HttpClientHeper.Post(urll, y);
+                if (Convert.ToInt32(modela) > 0)
+                {
+                    Response.Redirect("http://localhost:7652/Payment/QRcode?text=" + sum);
+                }
+                #endregion
+
+                
 
             }
         }

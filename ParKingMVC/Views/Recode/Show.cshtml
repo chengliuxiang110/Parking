@@ -11,12 +11,14 @@
         <td>停车明细</td>
         <td>停车时间</td>
     </tr>
-    <tr>
-        @foreach (var m in Model)
-        {
+
+    @foreach (var m in Model)
+    {
+        <tr>
             <td>@m.RName</td>
             <td>@m.CreateDatetime</td>
-        }
-    </tr>
-    
+        </tr>
+    }
+
+
 </table>

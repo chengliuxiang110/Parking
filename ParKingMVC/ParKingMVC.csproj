@@ -147,6 +147,7 @@
     <Compile Include="Controllers\CarTypesController.cs" />
     <Compile Include="Controllers\ChargeController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Models\Recode.cs" />
@@ -320,6 +321,7 @@
     <Content Include="Login\Login\css\style.css" />
     <Content Include="Login\Login\index.html" />
     <Content Include="Login\Login\js\jquery-2.1.4.min.js" />
+    <Content Include="Pan\309048.jpg" />
     <Content Include="Pan\321695.jpg" />
     <Content Include="Pan\css\reset.min.css" />
     <Content Include="Pan\css\style.css" />
@@ -369,6 +371,7 @@
     <Content Include="Views\Park\Index.cshtml" />
     <Content Include="Views\Payment\QRcode.cshtml" />
     <Content Include="Views\Recode\Show.cshtml" />
+    <Content Include="Views\Map\Msp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
