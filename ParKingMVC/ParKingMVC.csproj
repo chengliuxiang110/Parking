@@ -149,6 +149,8 @@
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Models\Recode.cs" />
+    <Compile Include="Controllers\RecodeController.cs" />
     <Compile Include="Controllers\ShowController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -366,6 +368,7 @@
     <Content Include="Views\Show\LicenseAdd.cshtml" />
     <Content Include="Views\Park\Index.cshtml" />
     <Content Include="Views\Payment\QRcode.cshtml" />
+    <Content Include="Views\Recode\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

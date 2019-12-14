@@ -163,6 +163,7 @@
     <Compile Include="Controllers\ChargeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
+    <Compile Include="Controllers\RecodeController.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,6 +172,7 @@
     <Compile Include="Models\CarTypesInfoModel.cs" />
     <Compile Include="Models\ChargeInfoModel.cs" />
     <Compile Include="Models\ParkInfoModel.cs" />
+    <Compile Include="Models\Recode.cs" />
     <Compile Include="Models\StallInfoModel.cs" />
     <Compile Include="Models\UserInfoModel.cs" />
     <Compile Include="Models\ViewModel.cs" />

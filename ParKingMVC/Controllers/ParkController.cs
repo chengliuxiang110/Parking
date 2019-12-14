@@ -145,11 +145,34 @@ namespace ParKingMVC.Controllers
                     speech.Volume = volume;
                     speech.Speak(testspeech, SpeechVoiceSpeakFlags.SVSFlagsAsync);//开始语音朗读
                 }
+                #region 明细
+
+                Recode recode = new Recode();
+                string text = Session["Plate"].ToString() + "驶入汽车";
+                recode.RName = text;
+                List<ViewModel> modelsa = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+                foreach (var t in models)
+                {
+                    recode.FId = t.UIDa;
+                }
+                string urll= "http://localhost:6201/Recode/Add";
+                string y = JsonConvert.SerializeObject(recode);
+                string model = HttpClientHeper.Post(urll, y);
+                if (Convert.ToInt32(model) > 0)
+                {
+                    Response.Redirect("");
+                }
+                #endregion
+
+
 
                 Response.Write("<script>alert('驶入成功！');location.href='/USerInfo/Show'</script>");
             }
         }
-
+        public void RecodeAdd(Recode recode)
+        {
+            
+        }
         public void Away(int id)
         {
             url += "Park/Away";
