@@ -16,7 +16,7 @@ namespace ParKingMVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "News", action = "NewsIndex", id = UrlParameter.Optional }
+                defaults: new { controller = "UserInfo", action = "UserInfoLogin", id = UrlParameter.Optional }
             );
         }
     }

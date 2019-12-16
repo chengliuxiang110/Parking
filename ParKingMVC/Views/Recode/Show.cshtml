@@ -1,0 +1,24 @@
+﻿@model List<Recode>
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Show/Show.cshtml";
+}
+
+<h2>Show</h2>
+
+<table class="layui-table layui-table-body" style="padding-left:450px; background-color:lightblue;width:980px ;">
+    <tr>
+        <td>停车明细</td>
+        <td>停车时间</td>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.RName</td>
+            <td>@m.CreateDatetime</td>
+        </tr>
+    }
+
+
+</table>
