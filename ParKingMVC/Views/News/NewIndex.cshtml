@@ -1,0 +1,261 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<ParKingMVC.Models.NewsModel>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery tab选项卡加图文列表布局</title>
+    <link href="~/News/css/style.css" rel="stylesheet" />
+    <script src="~/News/js/jquery.min.js"></script>
+    <style>
+        .List {
+            background-image: url('../../News/ChMkJ1am3RGIQJrzAAUNsMpqlNEAAHqigN3DOgABQ3I779.jpg');
+            width: 100%;
+            height: 100%;
+        }
+        .new_con {
+            background-color:white;
+        }
+    </style>
+</head>
+<body class="List">
+
+
+    <div id="new_box">
+
+        <div class="title_cn">
+            汽车资讯
+        </div>
+
+        <div class="new_con">
+            <div class="newtel">
+                <ul class="new_telst">
+                    <li class="">最新头条</li>
+                    <li class="newon">硬件发烧友</li>
+                    <li class="">科学探索</li>
+                    <p style="left: 166px;">
+
+                    </p>
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="new-wrap">
+                <!--案例1-->
+                <div class="new_lst show" style="display: none;">
+                    <ul class="new_lst_cn">
+                        <li class="new_cnlf">
+                            <p class="newlf_img">
+                                <img src="~/News/images/1560043741184.jpg" width="370" height="207" />
+                            </p>
+                            <p class="newlf_tel">
+                                <a href="#">爱车的信息</a>
+                            </p>
+                            <p class="newlf_tx">
+                                石墨烯散热技术已经被华为等厂商大规模应用在智能手机内部的散热系统中。厦门立琪电子有限公司就推出了一款石墨烯外壳无线充电器，利用石墨烯复合材料的高导热性，可以有效解决无线充电器的散热问题，提高充电速度。
+                            </p>
+                        </li>
+                        <li class="new_cnrf">
+                            <form action="~/News/NewSelectOne" method="post">
+
+                                <div class="newrf_lst">
+                                    <dl>
+                                        @foreach (var m in Model)
+                                        {
+                                            <dd>
+                                                <p class="new_rq">
+                                                    <span>@m.Ndate</span>@m.Nname
+                                                </p>
+                                                <p class="newrf_tx">
+                                                    <a href="/News/NewSelectOnes?id=@m.NID"> @m.Nnei </a>
+                                                    <span>@m.Npicture</span>
+                                                </p>
+                                            </dd>
+                                        }
+                                    </dl>
+                                </div>
+                            </form>
+
+                        </li>
+                        <div class="clear">
+                        </div>
+                    </ul>
+                </div>
+                <!--案例2-->
+                <div class="new_lst" style="display: block;">
+                    <ul class="new_lst_cn">
+                        <li class="new_cnlf">
+                            <p class="newlf_img">
+                                <img src="~/News/images/1560043786595.jpg" width="370" height="207" />
+                            </p>
+                            <p class="newlf_tel">
+                                <a href="#"> 64核AMD EPYC二代处理器创纪录</a>
+                            </p>
+                            <p class="newlf_tx">
+                                根据AMD的数据，服务器CPU已经是他们第二大收入来源，市场份额也从之前的不到1%增长到了3.2%，，预计2020年底将达到双位数份额，而这就要依靠他们的EPYC二代处理器了。
+                            </p>
+                        </li>
+                        <li class="new_cnrf">
+                            <div class="newrf_lst">
+                                <dl>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>26</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> ARM加入CXL开放互连联盟</a>
+                                            <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>25</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> ARM加入CXL开放互连联盟</a>
+                                            <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>24</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> ARM加入CXL开放互连联盟</a>
+                                            <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>23</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> ARM加入CXL开放互连联盟</a>
+                                            <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>19</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> ARM加入CXL开放互连联盟</a>
+                                            <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>18</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> ARM加入CXL开放互连联盟</a>
+                                            <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        </p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <div class="clear">
+                        </div>
+                    </ul>
+                </div>
+                <!--案例3-->
+                <div class="new_lst" style="display: none;">
+                    <ul class="new_lst_cn">
+                        <li class="new_cnlf">
+                            <p class="newlf_img">
+                                <img src="~/News/images/1560043760839.jpg" width="370" height="207" />
+                            </p>
+                            <p class="newlf_tel">
+                                <a href="#"> 内存延迟有多重要？游戏性能测试说明真相 </a>
+                            </p>
+                            <p class="newlf_tx">
+                                对于DIY玩家来说，探究技术细节是他们的一大乐趣之一，最让玩家纠结的一个参数大概要属内存延迟这事了，一方面这关系到内存的选择，频率越高的内存当然延迟会更低，只不过价格也会越高。
+                            </p>
+                        </li>
+                        <li class="new_cnrf">
+                            <div class="newrf_lst">
+                                <dl>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>6</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> Intel 10nm处理器出货</a>
+                                            <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>6</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> Intel 10nm处理器出货</a>
+                                            <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>3</span>2018-7
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> Intel 10nm处理器出货</a>
+                                            <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>28</span>2018-6
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> Intel 10nm处理器出货</a>
+                                            <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>27</span>2018-6
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> Intel 10nm处理器出货</a>
+                                            <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                        </p>
+                                    </dd>
+                                    <dd>
+                                        <p class="new_rq">
+                                            <span>26</span>2018-6
+                                        </p>
+                                        <p class="newrf_tx">
+                                            <a href="#"> Intel 10nm处理器出货</a>
+                                            <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                        </p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //设计案例切换
+            $('.new_telst li').mouseover(function () {
+                var liindex = $('.new_telst li').index(this);
+                $(this).addClass('newon').siblings().removeClass('newon');
+                $('.new-wrap div.new_lst').eq(liindex).fadeIn(150).siblings('div.new_lst').hide();
+                var liWidth = $('.new_telst li').width();
+                $('.newtel .new_telst p').stop(false, true).animate({ 'left': liindex * liWidth + 'px' }, 300);
+            });
+
+        });
+    </script>
+</body>
+</html>

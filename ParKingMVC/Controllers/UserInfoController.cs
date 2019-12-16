@@ -51,7 +51,8 @@ namespace ParKingMVC.Controllers
         #region 登录
         public ActionResult UserInfoLogon()
         {
-            return View();
+            ParKingMVC.UserInfoModel model = new UserInfoModel();
+            return View(model);
         }
         [HttpPost]
         public void UserInfoLogon(string Name,string Key)
@@ -88,13 +89,56 @@ namespace ParKingMVC.Controllers
             }
             else
             {
-                Response.Write("<script>alert('登录失败！');location.href='/UsersInfo/Show'</script>");
+                Response.Write("<script>alert('用户名错误，或密码错误！');location.href='/UsersInfo/UserInfoLogon'</script>");
             }
         }
 
         #endregion
 
+        #region 修改
+        public ActionResult UserInfoLoginUpdate(int id = 0)
+        {
+            HttpCookie http = Request.Cookies["Cooke"];
+            //Cooke解码
+            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+            //反序列化
+            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+            foreach (var m in models)
+            {
+                id = m.UIDa;
+            }
+            url += "Login/SelectOne?id=" + id;
+            string model = HttpClientHeper.Get(url);
+            List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
+            return View(list.First());
+        }
+        [HttpPost]
+        public void UserInfoLoginUpdate(UserInfoModel model, int id)
+        {
+            url += "login/Upt";
+            
+            model.UIDa = id;
+            string s = JsonConvert.SerializeObject(model);
+            string i = HttpClientHeper.Post(url, s);
+            List<UserInfoModel> a = JsonConvert.DeserializeObject<List<UserInfoModel>>(i);
+            //if (model.Upwd == model.Upwd2)
+            //{
+            if (a.Count() > 0)
+            {
+                Response.Write("<script>alert('修改成功！请重新登录。');location.href='/UserInfo/UserInfoLogon'</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('修改失败！');location.href='/UserInfo/UserInfoLogon'</script>");
+            }
+        }
+        //else
+        //{
+        //    Response.Write("<script>alert('密码不一致！');location.href='/UserInfo/UserInfoLogon'</script>");
+        //}
+        //}
 
+        #endregion
         #endregion
 
 
