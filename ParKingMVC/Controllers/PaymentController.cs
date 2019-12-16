@@ -46,11 +46,11 @@ namespace ParKingMVC.Controllers
                 writer.Options = options;
 
                 Bitmap map = writer.Write(text);
-                string di = text + DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
+                string di = DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
                 //二维码会显示在桌面(你也想显示在桌面的话,要改一下路径)
-                string path = Path.Combine("D:\\小实训2\\Goods\\Goods\\Img", di);
+                string path = Path.Combine("D:\\小实训2\\Api\\ParKingMVC\\Moeny", di);
                 map.Save(path, ImageFormat.Png);
-                string m = "/Img/" + di;
+                string m = "/Moeny/" + di;
                 ViewBag.Img = m;
                 map.Dispose();
                 //Response = "二维码生成成功！";

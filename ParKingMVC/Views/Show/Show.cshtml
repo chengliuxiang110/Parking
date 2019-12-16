@@ -22,8 +22,6 @@
                     <li onclick="location.href='/UserInfo/UserInfoLoginUpdate/?id=@Session["ID"]'">修改密码</li>
                     <li onclick="location.href='/UserInfo/Show'">编辑信息</li>
                     <li onclick="location.href='/Show/LicenseAdd'">添加车辆信息</li>
-                    <li onclick="location.href='/Park/Show'">车辆信息</li>
-                    <li>pig</li>
                 </ul>
             </a>
         </li>
@@ -43,24 +41,32 @@
                 <h2 class="menu-title menu-title_3rd">车辆信息</h2>
                 <ul class="menu-dropdown">
                     <li onclick="location.href='/Park/Index'">车辆信息</li>
+                    <li onclick="location.href='/Recode/Show'">停车明细</li>
                 </ul>
             </a>
         </li>
         <li>
             <a href="#click" class="menu">
-                <h2 class="menu-title menu-title_4th">Movies</h2>
+                <h2 class="menu-title menu-title_4th">导航</h2>
                 <ul class="menu-dropdown">
-                    <li>Godzilla</li>
-                    <li>Man on Wire</li>
+                    <li onclick="location.href='/Map/Msp'">当前位置</li>
                 </ul>
             </a>
         </li>
     </ul>
     <div class="List" style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei'; width:100%;height:100%">
-        <div style="padding-left:450px;">
-            @RenderBody()
+        @*<div style="width:500px;height:450px">
+            <link href="~/Login/RL/css/calendar.css" rel="stylesheet" />
+            <div id="calendar" class="calendar"></div>
+            <script src="~/Login/RL/js/jquery.min.js"></script>
+            <script src="~/Login/RL/js/calendar.js"></script>
+            <div style="text-align:center;">
+            </div>
+        </div>*@
+            <div style="padding-left:450px;">
+                @RenderBody()
+            </div>
         </div>
-    </div>
 </body>
 </html>
 
