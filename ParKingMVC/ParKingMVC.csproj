@@ -321,6 +321,10 @@
     <Content Include="Login\Login\css\style.css" />
     <Content Include="Login\Login\index.html" />
     <Content Include="Login\Login\js\jquery-2.1.4.min.js" />
+    <Content Include="Login\RL\css\calendar.css" />
+    <Content Include="Login\RL\index.html" />
+    <Content Include="Login\RL\js\calendar.js" />
+    <Content Include="Login\RL\js\jquery.min.js" />
     <Content Include="Pan\309048.jpg" />
     <Content Include="Pan\321695.jpg" />
     <Content Include="Pan\css\reset.min.css" />
@@ -377,7 +381,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Moeny\" />
     <Folder Include="Views\Charge\" />
-    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -223,7 +223,7 @@ namespace ParKingMVC.Controllers
                 //反序列化
                 List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
                 Recode recode = new Recode();
-                string text = Session["Plate"].ToString() + "驶出汽车";
+                string text = Session["Plate"].ToString() + "驶出汽车！￥" + sum + "元";
                 recode.RName = text;
                 List<ViewModel> modelsa = JsonConvert.DeserializeObject<List<ViewModel>>(str);
                 foreach (var t in modelsa)
