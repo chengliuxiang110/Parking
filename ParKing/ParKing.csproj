@@ -162,6 +162,7 @@
     <Compile Include="Controllers\CarTypeController.cs" />
     <Compile Include="Controllers\ChargeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="Global.asax.cs">
@@ -170,6 +171,7 @@
     <Compile Include="Models\AdminInfoModel.cs" />
     <Compile Include="Models\CarTypesInfoModel.cs" />
     <Compile Include="Models\ChargeInfoModel.cs" />
+    <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\ParkInfoModel.cs" />
     <Compile Include="Models\StallInfoModel.cs" />
     <Compile Include="Models\UserInfoModel.cs" />

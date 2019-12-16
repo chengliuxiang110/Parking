@@ -1,7 +1,12 @@
-﻿@model UserInfoModel
+﻿
 @{
-    Layout = null;
+    ViewBag.Title = "UserInfoLoginUpdate";
 }
+
+<h2>UserInfoLoginUpdate</h2>
+
+@model UserInfoModel
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +47,7 @@
         <div class="stage">
             <div class="cbImage w3">
                 <h3>恢复形式</h3>
-                <form action="UserInfo/UserInfoLoginUpdate" method="post">
+                <form action="UserInfoLoginUpdate" method="post">
                     <input type="hidden" name="id" value="@Model.UIDa" />
                     <input type="text" name="Uname" value="@Model.Uname" placeholder="用户名" required="">
                     <input type="password" name="Upwd1" value="@Model.Upwd" placeholder="密码" required="">
@@ -74,8 +79,7 @@
                     <input type="password" class="password" name="Upwd" placeholder="密码" required="">
                     <input type="password" class="password" name="confirm password" placeholder="确认密码" required="">
                     <input type="text" class="name" name="UPhone" placeholder="电话" required="">
-                    <input type="text" class="name" name="Uide
-                           ntity" placeholder="省份证" required="">
+                    <input type="text" class="name" name="Uidentity" placeholder="省份证" required="">
                     <input type="text" class="name" name="USite" placeholder="用户地址" required="">
                     <input type="submit" value="用户注册">
                 </form>

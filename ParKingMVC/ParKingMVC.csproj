@@ -147,6 +147,7 @@
     <Compile Include="Controllers\CarTypesController.cs" />
     <Compile Include="Controllers\ChargeController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ShowController.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="HttpClientHeper.cs" />
     <Compile Include="Models\CarTypesInfoModel.cs" />
     <Compile Include="Models\ChargeInfoModel.cs" />
+    <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\ParkInfoModel.cs" />
     <Compile Include="Models\ParkViewModel.cs" />
     <Compile Include="Models\StallInfoModel.cs" />
@@ -318,6 +320,16 @@
     <Content Include="Login\Login\css\style.css" />
     <Content Include="Login\Login\index.html" />
     <Content Include="Login\Login\js\jquery-2.1.4.min.js" />
+    <Content Include="News\48.jpg" />
+    <Content Include="News\ChMkJ1am3RGIQJrzAAUNsMpqlNEAAHqigN3DOgABQ3I779.jpg" />
+    <Content Include="News\css\style.css" />
+    <Content Include="News\images\1560043741184.jpg" />
+    <Content Include="News\images\1560043760839.jpg" />
+    <Content Include="News\images\1560043786595.jpg" />
+    <Content Include="News\images\new_img1.jpg" />
+    <Content Include="News\images\new_img2.jpg" />
+    <Content Include="News\images\new_img3.jpg" />
+    <Content Include="News\js\jquery.min.js" />
     <Content Include="Pan\321695.jpg" />
     <Content Include="Pan\css\reset.min.css" />
     <Content Include="Pan\css\style.css" />
@@ -366,6 +378,9 @@
     <Content Include="Views\Show\LicenseAdd.cshtml" />
     <Content Include="Views\Park\Index.cshtml" />
     <Content Include="Views\Payment\QRcode.cshtml" />
+    <Content Include="Views\UserInfo\UserInfoLoginUpdate.cshtml" />
+    <Content Include="Views\News\NewIndex.cshtml" />
+    <Content Include="Views\News\NewSelectOnes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

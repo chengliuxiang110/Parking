@@ -28,9 +28,10 @@ namespace ParKing.Controllers
         public IHttpActionResult LoginUpt(UserInfoModel user)
         {
             Dictionary<string, object> pairs = new Dictionary<string, object>();
+            pairs.Add("@UIDa", user.UIDa);
             pairs.Add("@Uname", user.Uname);
             pairs.Add("@Upwd", user.Upwd);
-            int i = DBHelper.ExecProcSQL("P_UserInfo_Login", pairs);
+            DataTable i = DBHelper.ExecProcDataTable("P_UserInfo_UptLogin", pairs);
             return Json(i);
         }
         //用户注册
