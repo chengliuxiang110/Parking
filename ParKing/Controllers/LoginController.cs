@@ -31,7 +31,7 @@ namespace ParKing.Controllers
             pairs.Add("@UIDa", user.UIDa);
             pairs.Add("@Uname", user.Uname);
             pairs.Add("@Upwd", user.Upwd);
-            DataTable i = DBHelper.ExecProcDataTable("P_UserInfo_UptLogin", pairs);
+            int i = DBHelper.ExecProcSQL("P_UserInfo_UptLogin", pairs);
             return Json(i);
         }
         //用户注册

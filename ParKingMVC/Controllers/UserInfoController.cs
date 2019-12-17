@@ -119,10 +119,10 @@ namespace ParKingMVC.Controllers
             model.UIDa = id;
             string s = JsonConvert.SerializeObject(model);
             string i = HttpClientHeper.Post(url, s);
-            List<UserInfoModel> a = JsonConvert.DeserializeObject<List<UserInfoModel>>(i);
+            // List<UserInfoModel> a = JsonConvert.DeserializeObject<List<UserInfoModel>>(i);
             //if (model.Upwd == model.Upwd2)
             //{
-            if (a.Count() > 0)
+            if (Convert.ToInt32(i) > 0)
             {
                 Response.Write("<script>alert('修改成功！请重新登录。');location.href='/UserInfo/UserInfoLogon'</script>");
             }
