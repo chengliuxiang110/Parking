@@ -160,18 +160,14 @@ namespace ParKingMVC.Controllers
                 string model = HttpClientHeper.Post(urll, y);
                 if (Convert.ToInt32(model) > 0)
                 {
-                    Response.Redirect("");
+                    Response.Redirect("http://localhost:7652/News/NewIndex");
                 }
                 #endregion
 
 
 
-                Response.Write("<script>alert('驶入成功！');location.href='/USerInfo/Show'</script>");
+                Response.Write("<script>alert('驶入成功！');location.href='/News/NewIndex'</script>");
             }
-        }
-        public void RecodeAdd(Recode recode)
-        {
-            
         }
         public void Away(int id)
         {

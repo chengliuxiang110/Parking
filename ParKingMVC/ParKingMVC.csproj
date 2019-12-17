@@ -145,11 +145,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CarTypesController.cs" />
-    <Compile Include="Controllers\ChargeController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ParkController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\Recode.cs" />
     <Compile Include="Controllers\RecodeController.cs" />
     <Compile Include="Controllers\ShowController.cs" />
@@ -325,6 +326,16 @@
     <Content Include="Login\RL\index.html" />
     <Content Include="Login\RL\js\calendar.js" />
     <Content Include="Login\RL\js\jquery.min.js" />
+    <Content Include="News\48.jpg" />
+    <Content Include="News\ChMkJ1am3RGIQJrzAAUNsMpqlNEAAHqigN3DOgABQ3I779.jpg" />
+    <Content Include="News\css\style.css" />
+    <Content Include="News\images\1560043741184.jpg" />
+    <Content Include="News\images\1560043760839.jpg" />
+    <Content Include="News\images\1560043786595.jpg" />
+    <Content Include="News\images\new_img1.jpg" />
+    <Content Include="News\images\new_img2.jpg" />
+    <Content Include="News\images\new_img3.jpg" />
+    <Content Include="News\js\jquery.min.js" />
     <Content Include="Pan\309048.jpg" />
     <Content Include="Pan\321695.jpg" />
     <Content Include="Pan\css\reset.min.css" />
@@ -376,11 +387,13 @@
     <Content Include="Views\Payment\QRcode.cshtml" />
     <Content Include="Views\Recode\Show.cshtml" />
     <Content Include="Views\Map\Msp.cshtml" />
+    <Content Include="Views\UserInfo\UserInfoLoginUpdate.cshtml" />
+    <Content Include="Views\News\NewIndex.cshtml" />
+    <Content Include="Views\News\NewSelectOnes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Moeny\" />
-    <Folder Include="Views\Charge\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

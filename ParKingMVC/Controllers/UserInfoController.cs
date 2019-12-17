@@ -84,8 +84,7 @@ namespace ParKingMVC.Controllers
 
                 Session["ID"] = list.First().UIDa;
                 int ids = Convert.ToInt32(Session["ID"]);
-                Response.Write("<script>alert('登录成功！')</script>");
-                Response.Redirect($"http://localhost:7652/UserInfo/Show/?id={ids}");
+                Response.Write("<script>alert('登录成功！');location.href='/News/NewIndex'</script>");
             }
             else
             {
@@ -116,7 +115,7 @@ namespace ParKingMVC.Controllers
         public void UserInfoLoginUpdate(UserInfoModel model, int id)
         {
             url += "login/Upt";
-            
+
             model.UIDa = id;
             string s = JsonConvert.SerializeObject(model);
             string i = HttpClientHeper.Post(url, s);
@@ -136,8 +135,7 @@ namespace ParKingMVC.Controllers
         //{
         //    Response.Write("<script>alert('密码不一致！');location.href='/UserInfo/UserInfoLogon'</script>");
         //}
-        //}
-
+        //}
         #endregion
         #endregion
 
@@ -146,8 +144,17 @@ namespace ParKingMVC.Controllers
         /// 个人信息反填
         /// </summary>
         /// <returns></returns>
-        public ActionResult Show(int id)
+        public ActionResult Show(int id=0)
         {
+            HttpCookie http = Request.Cookies["Cooke"];
+            //Cooke解码
+            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+            //反序列化
+            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+            foreach (var m in models)
+            {
+                id = m.UIDa;
+            }
             url += "Login/SelectOne?id="+id;
             string model = HttpClientHeper.Get(url);
             List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
@@ -166,29 +173,30 @@ namespace ParKingMVC.Controllers
             string m = HttpClientHeper.Post(url, str);
             if (Convert.ToInt32(m) > 0)
             {
-                Response.Write("<script>alert('修改成功！');location.href='/UserInfo/Show'</script>");
+                Response.Write("<script>alert('修改个人信息成功！');location.href='/News/NewIndex'</script>");
             }
         }
 
-        public ActionResult UserInfoUpt(int id)
-        {
-            url += "Login/SelectOne?id=" + id;
-            string model = HttpClientHeper.Get(url);
-            List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
-            return View(list.First());
-        }
-        [HttpPost]
-        public void UserInfoUpt(UserInfoModel user)
-        {
-            url += "login/Upt";
-            string s = JsonConvert.SerializeObject(url);
-            string model = HttpClientHeper.Post(url, s);
-            if (Convert.ToInt32(model) > 0)
-            {
-                int ids = Convert.ToInt32(Session["ID"]);
-                Response.Write("<script>alert('修改成功！')</script>");
-                Response.Redirect($"http://localhost:7652/UserInfo/Show/?id={ids}");
-            }
-        }
+        //public ActionResult UserInfoUpt(int id)
+        //{
+        //    url += "Login/SelectOne?id=" + id;
+        //    string model = HttpClientHeper.Get(url);
+        //    List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
+        //    return View(list.First());
+        //}
+        //[HttpPost]
+        //public void UserInfoUpt(UserInfoModel user)
+        //{
+        //    url += "login/Upt";
+        //    string s = JsonConvert.SerializeObject(url);
+        //    string model = HttpClientHeper.Post(url, s);
+        //    if (Convert.ToInt32(model) > 0)
+        //    {
+        //        int ids = Convert.ToInt32(Session["ID"]);
+        //        Response.Write("<script>alert('修改成功！')</script>");
+        //        Response.Redirect($"http://localhost:7652/UserInfo/Show/?id={ids}");
+        //    }
+        //}
+
     }
 }

@@ -58,7 +58,7 @@ namespace ParKingMVC.Controllers
             string i = HttpClientHeper.Post(url, mm);
             if(Convert.ToInt32(i)>0)
             {
-                Response.Write("<script>alert('添加成功！')</script>");
+                Response.Write("<script>alert('录入车牌号成功！');location.href='/News/NewIndex'</script>");
             }
         }
     }
