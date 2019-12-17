@@ -88,7 +88,7 @@ namespace ParKingMVC.Controllers
             }
             else
             {
-                Response.Write("<script>alert('用户名错误，或密码错误！');location.href='/UsersInfo/UserInfoLogon'</script>");
+                Response.Write("<script>alert('用户名错误，或密码错误！');location.href='/UserInfo/UserInfoLogon'</script>");
             }
         }
 
@@ -144,21 +144,32 @@ namespace ParKingMVC.Controllers
         /// 个人信息反填
         /// </summary>
         /// <returns></returns>
+        /// 
         public ActionResult Show(int id=0)
         {
-            HttpCookie http = Request.Cookies["Cooke"];
-            //Cooke解码
-            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
-            //反序列化
-            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
-            foreach (var m in models)
+            try
             {
-                id = m.UIDa;
+                HttpCookie http = Request.Cookies["Cooke"];
+                //Cooke解码
+                string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+                //反序列化
+                List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+                foreach (var m in models)
+                {
+                    id = m.UIDa;
+                }
+                url += "Login/SelectOne?id=" + id;
+                string model = HttpClientHeper.Get(url);
+                List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
+                return View(list.First());
             }
-            url += "Login/SelectOne?id="+id;
-            string model = HttpClientHeper.Get(url);
-            List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
-            return View(list.First());
+            catch (Exception)
+            {
+                Response.Write("<script>alter('请登入之后继续操作')</script>");
+                Response.Redirect("");
+                return View();
+            }
+            
         }
         [HttpPost]
         public void UserInfoUpt(UserInfoModel model,HttpPostedFileBase File)
