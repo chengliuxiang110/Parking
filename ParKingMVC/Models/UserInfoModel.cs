@@ -12,6 +12,7 @@ namespace ParKingMVC
         public string UImage { get; set; }
         public string Uname { get; set; }
         public string Upwd { get; set; }
+        public string Upwd2 { get; set; }
         public string Uidentity { get; set; }
         public string UPhone { get; set; }
         public string USite { get; set; }

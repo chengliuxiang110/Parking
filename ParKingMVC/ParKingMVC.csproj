@@ -326,8 +326,114 @@
     <Content Include="Login\RL\index.html" />
     <Content Include="Login\RL\js\calendar.js" />
     <Content Include="Login\RL\js\jquery.min.js" />
-    <Content Include="News\48.jpg" />
-    <Content Include="News\ChMkJ1am3RGIQJrzAAUNsMpqlNEAAHqigN3DOgABQ3I779.jpg" />
+    <Content Include="News2\Img\08609c96e3a3cd5d875d20add05d3f6f.png" />
+    <Content Include="News2\Img\1b0e03fdd2e8144f96997f4691fd39d2.png" />
+    <Content Include="News2\Img\2019122011010833202.jpg" />
+    <Content Include="News2\Img\29192054234_big.jpg" />
+    <Content Include="News2\Img\6ce55541a8798f42a9864d955bbc96c6.png" />
+    <Content Include="News2\Img\7a64615774315b4c8598d89af52fc5ea.png" />
+    <Content Include="News2\Img\d21bdbc32a88160860bc4bd53834286a.png" />
+    <Content Include="News2\Img\fe3f37971a725b419adb4bafe8aed502.png" />
+    <Content Include="News2\Img\QJ8166068498.jpg" />
+    <Content Include="News2\Img\timg1.jpg" />
+    <Content Include="News2\Img\timg84DZKRKI.jpg" />
+    <Content Include="News2\Img\timgAA48Q2RU.jpg" />
+    <Content Include="News2\Img\timgDGS2SMW2.jpg" />
+    <Content Include="News2\Img\timgITSQMMHI.jpg" />
+    <Content Include="News2\Img\timgSV3QN4LB.jpg" />
+    <Content Include="News2\Img\timgX0071NUT.jpg" />
+    <Content Include="News2\Img\timgXG54JYEM.jpg" />
+    <Content Include="News2\Img\timgZR5QHNG0.jpg" />
+    <Content Include="News2\Img\u=1027294,3851479217&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\Img\u=128590728,2790954604&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\Img\u=1287395245,3114020194&amp;fm=214&amp;gp=0.jpg" />
+    <Content Include="News2\Img\u=1759892079,3083216131&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\Img\u=1859747905,1008101082&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\Img\u=1963624916,1647829541&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\Img\u=3659192218,1543617828&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\Img\u=3757269741,1544672556&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\Img\u=3929817719,3507084946&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\about.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case2.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case3.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case_info.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case_info2.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case_info3.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case_info4.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case_info5.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\case_info6.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\contact.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\css\fwxm.css" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\css\reset.css" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\css\thems.css" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\font\iconfont.css" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\font\iconfont.svg" />
+    <Content Include="News2\Img\-J-o-fyeyqem0354285.jpg" />
+    <Content Include="News2\Img\0025116bbe5b10183ee61a.jpg" />
+    <Content Include="News2\Img\1.jpg" />
+    <Content Include="News2\Img\1560043741184 - 副本.jpg" />
+    <Content Include="News2\Img\1560043741184.jpg" />
+    <Content Include="News2\Img\1560043760839.jpg" />
+    <Content Include="News2\Img\1560043786595.jpg" />
+    <Content Include="News2\Img\1576487460996.jpg" />
+    <Content Include="News2\Img\1576487531399.jpg" />
+    <Content Include="News2\Img\1576487583271.jpg" />
+    <Content Include="News2\Img\2.jpg" />
+    <Content Include="News2\Img\3.jpg" />
+    <Content Include="News2\Img\4.jpg" />
+    <Content Include="News2\Img\48.jpg" />
+    <Content Include="News2\Img\49.jpg" />
+    <Content Include="News2\Img\5.jpg" />
+    <Content Include="News2\Img\6.jpg" />
+    <Content Include="News2\Img\7.jpg" />
+    <Content Include="News2\Img\8.jpg" />
+    <Content Include="News2\Img\815e32827d438363e0b41aa9f3ceddafe077743938a00-xEXEFh_fw658.jpg" />
+    <Content Include="News2\Img\9.jpg" />
+    <Content Include="News2\Img\ab59a17aba21ef4691c5ea32ca2783e1.png" />
+    <Content Include="News2\Img\ascll码表.jpg" />
+    <Content Include="News2\Img\ChMkJ1am3RGIQJrzAAUNsMpqlNEAAHqigN3DOgABQ3I779.jpg" />
+    <Content Include="News2\Img\u=1149963656,132490179&amp;fm=26&amp;gp=0.jpg" />
+    <Content Include="News2\Img\万达.png" />
+    <Content Include="News2\Img\乱停罚单.png" />
+    <Content Include="News2\Img\乱停车.png" />
+    <Content Include="News2\Img\停车.png" />
+    <Content Include="News2\Img\地下停车场.png" />
+    <Content Include="News2\Img\大润发.png" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\index.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\js\banner.js" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\js\jquery-1.8.3.min.js" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\js\js_z.js" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\map.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\map\mapapi.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\news.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\newshy.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\news_info.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\news_info2.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\news_info3.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\news_info4.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\team.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\banner.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\banner2.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\case1.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\case2.png" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\code.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\fwxm.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\gywm.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\hezuoanli.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\map.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\pic1.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\pic2.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\pic3.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\pic4.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\pic5.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\rczp.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\team.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\upload\xwzc.jpg" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\zhaopin.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\zhaopin_info.html" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\zhaopin_info2.html" />
+    <Content Include="News\1002030.jpg" />
     <Content Include="News\css\style.css" />
     <Content Include="News\images\1560043741184.jpg" />
     <Content Include="News\images\1560043760839.jpg" />
@@ -353,6 +459,9 @@
     <Content Include="layui-v2.5.4\文档与示例\在线示例.url" />
     <Content Include="layui-v2.5.4\文档与示例\快速上手.url" />
     <Content Include="layui-v2.5.4\更新日志.url" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\font\iconfont.eot" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\font\iconfont.ttf" />
+    <Content Include="News2\绿色家居装修公司HTML网站模板\font\iconfont.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -390,6 +499,22 @@
     <Content Include="Views\UserInfo\UserInfoLoginUpdate.cshtml" />
     <Content Include="Views\News\NewIndex.cshtml" />
     <Content Include="Views\News\NewSelectOnes.cshtml" />
+    <Content Include="Views\News\NewShow.cshtml" />
+    <Content Include="Views\News\Newpartner.cshtml" />
+    <Content Include="Views\News\Newconsult.cshtml" />
+    <Content Include="Views\News\WachCar.cshtml" />
+    <Content Include="Views\News\NewAbout.cshtml" />
+    <Content Include="Views\News\about.cshtml" />
+    <Content Include="Views\News\GaoJi.cshtml" />
+    <Content Include="Views\News\ZhongJi.cshtml" />
+    <Content Include="Views\News\PuTong.cshtml" />
+    <Content Include="Views\News\DaRunFa.cshtml" />
+    <Content Include="Views\News\WanDa.cshtml" />
+    <Content Include="Views\News\Luan.cshtml" />
+    <Content Include="Views\News\FaDan.cshtml" />
+    <Content Include="Views\News\Zhuang.cshtml" />
+    <Content Include="Views\News\NewMap.cshtml" />
+    <Content Include="Views\News\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

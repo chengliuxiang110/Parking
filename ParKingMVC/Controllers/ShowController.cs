@@ -38,28 +38,36 @@ namespace ParKingMVC.Controllers
         [HttpPost]
         public void LicenseAdd(UserInfoModel model)
         {
-            string name = Request["Six"];
-            string License = Request["ID"] + name;
-
-            HttpCookie http = Request.Cookies["Cooke"];
-            //Cooke解码
-            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
-            //反序列化
-            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
-            foreach (var m in models)
+            try
             {
-                model.UIDa = m.UIDa;
-                ViewBag.ID = m.UIDa;
-            }
+                string name = Request["Six"];
+                string License = Request["ID"] + name;
 
-            model.Uplate = License;
-            url += "Login/LicenseAdd";
-            string mm = JsonConvert.SerializeObject(model);
-            string i = HttpClientHeper.Post(url, mm);
-            if(Convert.ToInt32(i)>0)
-            {
-                Response.Write("<script>alert('录入车牌号成功！');location.href='/News/NewIndex'</script>");
+                HttpCookie http = Request.Cookies["Cooke"];
+                //Cooke解码
+                string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+                //反序列化
+                List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+                foreach (var m in models)
+                {
+                    model.UIDa = m.UIDa;
+                    ViewBag.ID = m.UIDa;
+                }
+
+                model.Uplate = License;
+                url += "Login/LicenseAdd";
+                string mm = JsonConvert.SerializeObject(model);
+                string i = HttpClientHeper.Post(url, mm);
+                if (Convert.ToInt32(i) > 0)
+                {
+                    Response.Write("<script>alert('录入车牌号成功，请重新登录！');location.href='/UserInfo/UserInfoLogon'</script>");
+                }
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('请去登入再做以下操作谢谢!');location.href='/UserInfo/UserInfoLogon'</script>");
+            }
+           
         }
     }
 }

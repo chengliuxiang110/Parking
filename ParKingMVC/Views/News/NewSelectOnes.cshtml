@@ -7,23 +7,22 @@
 <h2>NewSelectOnes</h2>
 
 @model List<ParKingMVC.Models.NewsModel>
-<div class="pub-page-detail-pd">
-    <div class="pub-page-detailTitle" id="txtTITLE">新闻详情</div>
-    <div class="pub-page-detailPoint">
-        浏览量：<span id="txtPOINT">@Model.First().Lui</span>&nbsp;&nbsp;&nbsp;&nbsp;发布日期：<span id="txtCREATEDATE">@Model.First().Ndate</span>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <div class="pub-page-detailContent">
-        <p>编&nbsp;&nbsp;号：&nbsp;<span id="txtBIDNUM">@Model.First().NID</span></p>
-        <p>标&nbsp;&nbsp;题：&nbsp;<span id="txtPROVINCE">@Model.First().Nname</span></p>
-        <p class="hide" id="txtSUMMARYBox" style="display: block;">内&nbsp;&nbsp;容：&nbsp;<span id="txtSUMMARY">@Model.First().Nnei</span></p>
-        <p class="hide" id="txtCONTENT"></p>
-        <p class="text-c c-red pt-30 hide" id="txtPrompt">您目前会员权限不足！无法浏览全部内容。</p>
-        <p class="text-c pt-30 hide" id="txtLoginFalse" style="display: block;">
-            更多内容需要
-            <a class="c-red" onclick="user_login()">[登录]</a>
-            查看！还没
-            <a class="c-red" href="/register.html" target="_blank">注册</a>？
-        </p>
-    </div>
-</div>
-
+<table class="layui-table layui-table-body" style="padding-left:450px; background-color:skyblue;width:980px ;">
+    <tr>
+        <td>新闻编号</td>
+        <td>标题</td>
+        <td>内容</td>
+        <td>发布日期</td>
+        <td>浏览量</td>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@Model.First().NID</td>
+            <td style="width:30px;height:25px">@Model.First().Npicture</td>
+            <td>@Model.First().Nname</td>
+            <td>@Model.First().Nnei</td>
+            <td>@Model.First().Lui</td>
+        </tr>
+    }
+</table>

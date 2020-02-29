@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    .A {
+        margin-left: 50px;
+    }
+    .B {
+        float:right;
+    }
+    .btn {
+        margin-top: 50px;
+        width: 350px;
+        background-color: cornflowerblue;
+        color: white;
+    }
+</style>
+
+
+
+<div class="A">
+    <h3>已停9小时8分钟</h3>
+    宝龙停车场
+    <br />
+    <br />
+    入场时间
+    <span class="B">@System.DateTime.Now</span>
+    <br />
+    应付
+    <span class="B" id="A">￥20.00元</span>
+    <br />
+    支付方式
+    <span class="B">微信</span>
+    
+    <br />
+    <input type="button" name="name" value="立即支付" class="btn btn-default" onclick="location.href = '/Pay/Pay?maney='+ 20.00" />
+</div>
+

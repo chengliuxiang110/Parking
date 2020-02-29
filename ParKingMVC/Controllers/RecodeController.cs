@@ -18,20 +18,29 @@ namespace ParKingMVC.Controllers
         }
         public ActionResult Show(int Fid=0)
         {
-            HttpCookie http = Request.Cookies["Cooke"];
-            //Cooke解码
-            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
-            //反序列化
-            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
-            foreach (var m in models)
+            try
             {
-                Fid = m.UIDa;
-            }
+                HttpCookie http = Request.Cookies["Cooke"];
+                //Cooke解码
+                string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+                //反序列化
+                List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+                foreach (var m in models)
+                {
+                    Fid = m.UIDa;
+                }
 
-            url += "Recode/SelectOne?id="+Fid;
-            string model = HttpClientHeper.Get(url);
-            List<Recode> recodes = JsonConvert.DeserializeObject<List<Recode>>(model);
-            return View(recodes);
+                url += "Recode/SelectOne?id=" + Fid;
+                string model = HttpClientHeper.Get(url);
+                List<Recode> recodes = JsonConvert.DeserializeObject<List<Recode>>(model);
+                return View(recodes);
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('请去登入再做以下操作谢谢!');location.href='/UserInfo/UserInfoLogon'</script>");
+                return null;
+            }
+           
         }
     }
 }

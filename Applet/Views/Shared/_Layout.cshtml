@@ -19,14 +19,14 @@
                 </button>
                 @*@Html.ActionLink("应用程序名称", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
                 
-                @Html.ActionLink("微信车主服务", "", "", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("微信车主服务", "Show", "Enterong", new { area = "" }, new { @class = "navbar-brand" })
 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("主页", "Index", "Home")</li>
                     <li>@Html.ActionLink("关于", "About", "Home")</li>
-                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>*@
                 </ul>
             </div>
         </div>

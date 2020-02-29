@@ -42,9 +42,11 @@ var next=0;
 	
 	
 	function choosekey(obj,jj){	
-		if(jj==29){
+        if (jj == 29) {
             alert("车牌：" + $(".car_input").attr("data-pai"));
-            location.href = '/Enterong/Show';
+
+            location.href = '/Enterong/Show/?key=' + $(".car_input").attr("data-pai");
+            URL = "'/Enterong/Show/?cp=' + $('.car_input').attr('data - pai')";
             layer.closeAll();
             
 		}else if(jj==37){
@@ -81,7 +83,7 @@ var next=0;
 				if(next>5){
 					next=6;
 				}
-				getpai();
+                getpai();
 				return
 			}
 			
@@ -92,7 +94,7 @@ var next=0;
 	}
 	function closePro(){
         layer.closeAll();
-        location.href = '/Enterong/Show';
+        
 	}		
 	function cleanPro(){
        $(".ul_input").find("span").text("");

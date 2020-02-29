@@ -19,9 +19,12 @@ namespace ParKingMVC.Controllers
             return View();
         }
 
+        public ActionResult show()
+        {
+            return View();
+        }
+
         #region 用户登录、注册
-
-
         #region 注册
         [HttpPost]
         public void UserInfoLogin(UserInfoModel model, HttpPostedFileBase fileBase)
@@ -30,21 +33,37 @@ namespace ParKingMVC.Controllers
             {
                 System.IO.Directory.CreateDirectory(Server.MapPath("/Img/"));
             }
-            fileBase.SaveAs(Server.MapPath("/Img/") + fileBase.FileName);
-            model.UImage = "/Img/" + fileBase.FileName;
-
-            url += "login/Add";
-            string s = JsonConvert.SerializeObject(model);
-            string i = HttpClientHeper.Post(url, s);
-            
-            if (Convert.ToInt32(i) > 0)
+            if (Server.MapPath("/Img/") == null)
             {
-                Response.Write("<script>alert('注册成功！');location.href='/UserInfo/UserInfoLogin'</script>");
+                fileBase.SaveAs(Server.MapPath("/Img/") + fileBase.FileName);
+                model.UImage = "/Img/" + fileBase.FileName;
+
+                url += "login/Add";
+                if (model.Upwd == model.Upwd2)
+                {
+                    string s = JsonConvert.SerializeObject(model);
+                    string i = HttpClientHeper.Post(url, s);
+
+                    if (Convert.ToInt32(i) > 0)
+                    {
+                        Response.Write("<script>alert('注册成功,请登录！');location.href='/UserInfo/UserInfoLogon'</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('注册失败！');location.href='/UserInfo/UserInfoLogon'</script>");
+                    }
+
+                }
+                else
+                {
+                    Response.Write("<script>alert('密码不一致，请重新输入!');location.href='/UserInfo/UserInfoLogon'</script>");
+                }
             }
             else
             {
-                Response.Write("<script>alert('注册失败！');location.href='/UserInfo/UserInfoLogin'</script>");
+                Response.Write("<script>alert('文件为空！请重新添加');location.href='/UserInfo/UserInfoLogon'</script>");
             }
+            
         }
         #endregion
 
@@ -55,7 +74,7 @@ namespace ParKingMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public void UserInfoLogon(string Name,string Key)
+        public void UserInfoLogon(string Name, string Key)
         {
             url += "/Login/Login";
             UserInfoModel m = new UserInfoModel() { Uname = Name, Upwd = Key };
@@ -63,13 +82,13 @@ namespace ParKingMVC.Controllers
             string s = JsonConvert.SerializeObject(m);
             string data = HttpClientHeper.Post(url, s);
             List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(data);
-           
+
             if (list.Count > 0)
             {
                 //Cooke事件
                 HttpCookie cookie = new HttpCookie("User");
                 //给Cooke赋值
-                cookie.Value= list.First().Uname;
+                cookie.Value = list.First().Uname;
                 //给Cooke设置过期时间
                 cookie.Expires = DateTime.Now.AddMinutes(20);
                 //添加到服务器
@@ -97,19 +116,27 @@ namespace ParKingMVC.Controllers
         #region 修改
         public ActionResult UserInfoLoginUpdate(int id = 0)
         {
-            HttpCookie http = Request.Cookies["Cooke"];
-            //Cooke解码
-            string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
-            //反序列化
-            List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
-            foreach (var m in models)
+            try
             {
-                id = m.UIDa;
+                HttpCookie http = Request.Cookies["Cooke"];
+                //Cooke解码
+                string str = HttpUtility.UrlDecode(http.Value, Encoding.GetEncoding("UTF-8"));
+                //反序列化
+                List<ViewModel> models = JsonConvert.DeserializeObject<List<ViewModel>>(str);
+                foreach (var m in models)
+                {
+                    id = m.UIDa;
+                }
+                url += "Login/SelectOne?id=" + id;
+                string model = HttpClientHeper.Get(url);
+                List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
+                return View(list.First());
             }
-            url += "Login/SelectOne?id=" + id;
-            string model = HttpClientHeper.Get(url);
-            List<UserInfoModel> list = JsonConvert.DeserializeObject<List<UserInfoModel>>(model);
-            return View(list.First());
+            catch (Exception)
+            {
+                Response.Write("<script>alert('请去登入再做以下操作谢谢!');location.href='/UserInfo/UserInfoLogon'</script>");
+                return null;
+            }
         }
         [HttpPost]
         public void UserInfoLoginUpdate(UserInfoModel model, int id)
@@ -135,17 +162,21 @@ namespace ParKingMVC.Controllers
         //{
         //    Response.Write("<script>alert('密码不一致！');location.href='/UserInfo/UserInfoLogon'</script>");
         //}
-        //}
+        //}
+
+
         #endregion
         #endregion
 
+        #region 个人信息反填
 
+        
         /// <summary>
         /// 个人信息反填
         /// </summary>
         /// <returns></returns>
         /// 
-        public ActionResult Show(int id=0)
+        public ActionResult Show(int id = 0)
         {
             try
             {
@@ -165,14 +196,12 @@ namespace ParKingMVC.Controllers
             }
             catch (Exception)
             {
-                Response.Write("<script>alter('请登入之后继续操作')</script>");
-                Response.Redirect("");
-                return View();
+                Response.Write("<script>alert('请登入之后继续操作!');location.href='/UserInfo/UserInfoLogon'</script>");
+                return null;
             }
-            
         }
         [HttpPost]
-        public void UserInfoUpt(UserInfoModel model,HttpPostedFileBase File)
+        public void UserInfoUpt(UserInfoModel model, HttpPostedFileBase File)
         {
             url += "login/UserInfoUpt";
             if (!System.IO.Directory.Exists(Server.MapPath("/File/")))
@@ -208,6 +237,6 @@ namespace ParKingMVC.Controllers
         //        Response.Redirect($"http://localhost:7652/UserInfo/Show/?id={ids}");
         //    }
         //}
-
+        #endregion
     }
 }

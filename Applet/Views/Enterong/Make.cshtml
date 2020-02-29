@@ -2,6 +2,120 @@
 @{
     ViewBag.Title = "Make";
 }
+@model List<Applet.Models.CarTypeStall>
 
-<h2>Make</h2>
+<script src="~/layui-v2.5.4/layui/layui.js"></script>
+<script src="~/Content/layui.js"></script>
 
+<link href="~/layui-v2.5.4/layui/css/layui.css" rel="stylesheet" />
+<link href="~/layui-v2.5.4/layui/css/layui.mobile.css" rel="stylesheet" />
+<style>
+    .A {
+        margin-left: 20px;
+    }
+    .s {
+        text-align:center;
+    }
+</style>
+
+<div>
+    <img src="~/Img/BT.png" />
+</div>
+
+<h3 style="margin-left:140px">停车位</h3>
+<div>
+    <table class="layui-table table table-bordered">
+
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td class="s" data-method="notice">
+                    <div class="A">
+                        <input type="hidden" id="id" name="name" value="@m.TID" />
+                        <input type="hidden" id="money" name="Tmaney" value="@m.Tmaney" />
+                        <h3>@m.Tname</h3>
+                        <input type="button" name="name" value="万达" class="layui-btn layui-btn-radius layui-btn-normal" />
+                        <input type="button" name="name" value="万象" class="layui-btn layui-btn-radius layui-btn-warm" />
+                        <br />
+                        <span style="color:green;font-size:16px;">当前可用车位：@m.number</span>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+<script src="~/layui-v2.5.4/layui/layui.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use('layer', function () { //独立版的layer无需执行这一句
+        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+
+        //触发事件
+        var active = {
+            setTop: function () {
+                var that = this;
+                //多窗口模式，层叠置顶
+                layer.open({
+                    type: 2 //此处以iframe举例
+                    , title: '当你选择该窗体时，即会在最顶端'
+                    , area: ['390px', '260px']
+                    , shade: 0
+                    , maxmin: true
+                    , offset: [ //为了演示，随机坐标
+                        Math.random() * ($(window).height() - 300)
+                        , Math.random() * ($(window).width() - 390)
+                    ]
+                    , content: '//layer.layui.com/test/settop.html'
+                    , btn: ['继续弹出', '全部关闭'] //只是为了演示
+                    , yes: function () {
+                        $(that).click();
+                    }
+                    , btn2: function () {
+                        layer.closeAll();
+                    }
+
+                    , zIndex: layer.zIndex //重点1
+                    , success: function (layero) {
+                        layer.setTop(layero); //重点2
+                    }
+                });
+            }
+
+            , notice: function () {
+                //示范一个公告层
+                layer.open({
+                    type: 2
+                    , title: false //不显示标题栏
+                    , closeBtn: false
+                    , area: ['300px', '450px']
+                    , shade: 0.7
+                    , id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    , btn: ['重新选择', '预约支付']
+                    , btnAlign: 'c'
+                    , moveType: 1 //拖拽模式，0或者1
+                    , content: '/Enterong/Particulars/?money=' + $("#money").val()
+                    , success: function (layero) {
+                        var btn = layero.find('.layui-layer-btn');
+                        //btn.find('.layui-layer-btn1').attr({
+                        //     href: '/Pay/Pay'
+                        //    , target: '_blank'
+
+                        //});
+                    }, btn2: function () {
+                        location.href = '/Pay/Pay?maney=' + $("#money").val();
+                        layer.closeAll();
+                    }
+                });
+            }
+        };
+
+        $('.s').on('click', function () {
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+
+    });
+</script>
