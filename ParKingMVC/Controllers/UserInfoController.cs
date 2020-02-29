@@ -24,6 +24,11 @@ namespace ParKingMVC.Controllers
             return View();
         }
 
+        public ActionResult ming()
+        {
+            return View();
+        }
+
         #region 用户登录、注册
         #region 注册
         [HttpPost]
